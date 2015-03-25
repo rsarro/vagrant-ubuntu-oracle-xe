@@ -15,6 +15,8 @@ Vagrant.configure("2") do |config|
   
   # Forward Oracle port
   config.vm.network :forwarded_port, guest: 1521, host: 1521
+	config.vm.network :forwarded_port, guest: 8080, host: 28080
+	config.vm.network :forwarded_port, guest: 9443, host: 29443
 
   # Provider-specific configuration so you can fine-tune various backing
   # providers for Vagrant. These expose provider-specific options.
@@ -29,7 +31,7 @@ Vagrant.configure("2") do |config|
   end
 
   # This is just an example, adjust as needed
-  config.vm.provision :shell, :inline => "echo \"America/New_York\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
+  config.vm.provision :shell, :inline => "echo \"Europe/Lisbon\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
 
   config.vbguest.auto_update = false
 

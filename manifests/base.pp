@@ -8,6 +8,9 @@ node oracle {
     # So that we let Oracle installer create the group
     require => Service["oracle-xe"],
   }
+
+  include tomcat::java_6
+	include tomcat::tomcat_6
 }
 
 $a = file('/home/vagrant/vagrant-ubuntu-oracle-xe/oracle-jdbc/ojdbc6.jar', '/dev/null')
